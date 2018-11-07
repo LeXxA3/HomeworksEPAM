@@ -31,7 +31,6 @@ public class Comparison {
             }
             for (int i = 0; i < List1.size(); i++) {
                 if (!List1.get(i).equals(List2.get(i))) {
-                    System.out.println(i + "-ые строчки не равны");
                     listOfDifferences.add(List1.get(i));
                     listOfDifferences.add(List2.get(i));
                 }
@@ -42,7 +41,6 @@ public class Comparison {
             }
             for (int i = 0; i < List2.size(); i++) {
                 if (!List1.get(i).equals(List2.get(i))) {
-                    System.out.println(i + "-ые строчки не равны");
                     listOfDifferences.add(List1.get(i));
                     listOfDifferences.add(List2.get(i));
                 }
