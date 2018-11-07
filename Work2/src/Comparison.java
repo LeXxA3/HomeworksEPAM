@@ -10,20 +10,24 @@ import java.util.List;
 
 public class Comparison {
 
-    public static void main(String[] args) throws IOException {
-        List<String> List1 = getFileContent("C:\\textfile1.txt");
-        List<String> List2 = getFileContent("C:\\textfile2.txt");
-
-        List<String> arr = differencesOfFiles(List1, List2);
-
-        createCSV(arr);
+    
+    public static void main(String[] args) {
+        try {
+            List<String> List1 = getFileContent("G:\\textfile1.txt");
+            List<String> List2 = getFileContent("G:\\textfile2.txt");
+            List<String> arr = differencesOfFiles(List1, List2);
+            createCSV(arr);
+        }
+        catch (IOException e){
+            System.out.println ("Некорретный файл!");
+        }
     }
 
     private static List<String> differencesOfFiles(List<String> List1, List<String> List2) {
         List<String> listOfDifferences = new ArrayList<String>();
         if (List1.size() > List2.size()) {
             for (int i = List2.size(); i < List1.size(); i++) {
-                List2.add(null);
+                List2.add("пустая строка");
             }
             for (int i = 0; i < List1.size(); i++) {
                 if (!List1.get(i).equals(List2.get(i))) {
@@ -34,7 +38,7 @@ public class Comparison {
             }
         } else {
             for (int i = List1.size(); i < List2.size(); i++) {
-                List1.add(null);
+                List1.add("пустая строка");
             }
             for (int i = 0; i < List2.size(); i++) {
                 if (!List1.get(i).equals(List2.get(i))) {
@@ -48,7 +52,7 @@ public class Comparison {
     }
 
     private static void createCSV(List<String> myList) throws FileNotFoundException {
-        PrintWriter pw = new PrintWriter(new File("C:\\diffirences.csv"));
+        PrintWriter pw = new PrintWriter(new File("G:\\diffirences.csv"));
         StringBuilder sb = new StringBuilder();
         sb.append("list1");
         sb.append(';');
